@@ -1,0 +1,42 @@
+[viewBag]
+==
+
+<div class="ui grid">
+    <div class="computer only row">
+        <div class="column">
+                <div class="ui fixed borderless main menu">
+                        <div class="ui container">
+                          <div class="header item">
+                            <img class="logo" src="assets/images/logo.png">
+                            Project Name
+                          </div>
+                          <a href="{{ 'home'|page }}" class="{% if this.page.id == 'home' %}active{% endif %} item">Home</a>
+                          <a href="{{ 'product-list'|page }}" class="{% if this.page.id == 'product-list' %}active{% endif %} item">Product List</a>
+                          <a href="{{ 'company'|page }}" class="{% if this.page.id == 'company' %}active{% endif %} item">Company</a>
+                          <a href="{{ 'careers'|page }}" class="{% if this.page.id == 'careers' %}active{% endif %} item">Careers</a>
+                        </div>  
+                      </div>
+        </div>
+    </div>
+
+    <div class="tablet mobile only row">
+        <div class="column">
+            <div class="ui fixed borderless main menu">
+                <div class="ui container">
+                        <a class="toc item">
+                                <i class="sidebar icon"></i>
+                              </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+        <a href="{{ 'home'|page }}" class="{% if this.page.id == 'home' %}active{% endif %} item">Home</a>
+        <a href="{{ 'work'|page }}" class="{% if this.page.id == 'work' %}active{% endif %} item">Work</a>
+        <a href="{{ 'company'|page }}" class="{% if this.page.id == 'company' %}active{% endif %} item">Company</a>
+        <a href="{{ 'careers'|page }}" class="{% if this.page.id == 'careers' %}active{% endif %} item">Careers</a>
+    </div>
+    

@@ -1,0 +1,5 @@
+title: 'Data Produk'
+modelClass: RzlXbot\Produk\Models\ProdukModel
+nameFrom: nama_produk
+toolbar:
+    buttons: reorder_toolbar

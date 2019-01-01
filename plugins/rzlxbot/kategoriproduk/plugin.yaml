@@ -1,0 +1,11 @@
+plugin:
+    name: 'rzlxbot.kategoriproduk::lang.plugin.name'
+    description: 'rzlxbot.kategoriproduk::lang.plugin.description'
+    author: rzl-xbot
+    icon: oc-icon-list
+    homepage: ''
+navigation:
+    menu-kategori:
+        label: 'Data Kategori Produk'
+        url: rzlxbot/kategoriproduk/datakategori
+        icon: icon-list

@@ -1,0 +1,11 @@
+plugin:
+    name: 'rzlxbot.produk::lang.plugin.name'
+    description: 'rzlxbot.produk::lang.plugin.description'
+    author: rzl-xbot
+    icon: oc-icon-dropbox
+    homepage: ''
+navigation:
+    menu-produk:
+        label: 'Data Produk'
+        url: rzlxbot/produk/dataproduk
+        icon: icon-dropbox

@@ -1,0 +1,101 @@
+title = "product_detail"
+url = "/product_detail/:slug"
+layout = "page"
+is_hidden = 0
+child_of = "product-list"
+hide_crumb = 0
+crumb_title = ":slug"
+remove_crumb_trail = 0
+crumbElementTitle = "#title"
+crumb_disabled = 0
+
+[builderDetails productDetail]
+modelClass = "RzlXbot\Produk\Models\ProdukModel"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "nama_produk"
+notFoundMessage = "Record not found"
+==
+<?php
+use RzlXbot\Produk\Models\ProdukModel;
+
+    function onStart() {
+        $query = ProdukModel::with('kategori')->where('slug', $this->param('slug'))->get()->toArray();
+        $this['record'] = $query;
+    }
+?>
+==
+
+<div class="ui breadcrumb">
+        <a href="{{ 'home' |page }}" class="section">Home</a>
+        <i class="right angle icon divider"></i>
+        <a href="{{ 'product-list' |page }}" class="section">Product List</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">{{ record.nama_produk }}</div>
+      </div>
+
+<div class="ui raised padded segment">
+    <div class="ui stackable grid">
+        <div class="four wide column">
+            <img class="ui medium bordered image" src="{{ record.img_cover.path }}">
+        </div>
+        <div class="ten wide column">
+            <h2 class="ui header" id="title">
+                {{ record.nama_produk }}
+                <div class="sub header">{{ record.kategori.nama_kategori }}</div>
+            </h2>
+            <h3 class="ui sub header">Price</h3>
+            <span>Rp {{ record.harga_produk }}</span>
+            <h3 class="ui sub header">Product Gallery</h3>
+            {% if record.produk_galeri %}
+            <div class="ui tiny images">
+                {% for data in record.produk_galeri %}
+                <a class="ui image" onclick="show_modal(this)" data-type="{{ data.produk_galeri|media }}">
+                    <img src="{{ data.produk_galeri|media }}">
+                </a>
+                {% endfor %}
+            </div>
+            {% else %}
+            <span>No Image Gallery</span>
+            {% endif %}
+            <br>
+            <button class="ui blue button">
+                    <i class="icon user"></i>
+                    Order Now
+                </button>
+        </div>
+        <div class="row">
+            <div class="column">
+                <h4 class="ui horizontal divider header">
+                    <i class="tag icon"></i>
+                    Description & Specification
+                </h4>
+                {{ record.deskripsi_produk|raw }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui modal">
+    <div class="header">
+        Detail Photo
+    </div>
+    <div class="image content">
+        <div class="ui medium image">
+            <img id="img_modal"> 
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+<script>
+    
+    function show_modal(obj) {
+        var image = $(obj).data('type');
+        $('.ui.modal').modal({
+            inverted: true
+        }).modal('show');
+        $('#img_modal').attr('src', image);
+    }
+</script>
+{% endput %}

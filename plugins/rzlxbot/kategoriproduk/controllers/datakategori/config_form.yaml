@@ -1,0 +1,16 @@
+name: 'Form Data Kategori'
+modelClass: RzlXbot\KategoriProduk\Models\KategoriModel
+form: $/rzlxbot/kategoriproduk/models/kategorimodel/fields.yaml
+defaultRedirect: rzlxbot/kategoriproduk/datakategori
+create:
+    title: 'Tambah Data Kategori'
+    redirect: 'rzlxbot/kategoriproduk/datakategori/update/:id'
+    redirectClose: rzlxbot/kategoriproduk/datakategori
+    flashSave: 'Create kategori success'
+update:
+    title: 'Edit Data Kategori'
+    redirect: rzlxbot/kategoriproduk/datakategori
+    redirectClose: rzlxbot/kategoriproduk/datakategori
+    flashSave: 'Update kategori success'
+    flashDelete: 'Delete kategori success'
+preview: {  }

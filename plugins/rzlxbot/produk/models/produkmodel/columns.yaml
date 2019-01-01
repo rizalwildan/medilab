@@ -1,0 +1,25 @@
+columns:
+    nama_produk:
+        label: 'Nama Produk'
+        type: text
+        searchable: true
+        sortable: true
+    harga_produk:
+        label: 'Harga Produk'
+        type: number
+        sortable: true
+    kategori_id:
+        label: 'Kategori Produk'
+        type: text
+        select: nama_kategori
+        relation: kategori
+    img_cover:
+        label: 'Poster Produk'
+        type: partial
+        sortable: false
+        path: ~/plugins/rzlxbot/produk/models/produkmodel/_image_column.htm
+    created_at:
+        label: 'Created At'
+        type: datetime
+        searchable: true
+        sortable: true

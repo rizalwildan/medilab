@@ -1,0 +1,76 @@
+title = "category"
+url = "/category/:slug"
+layout = "page"
+is_hidden = 0
+
+[builderDetails kategoriDetails]
+modelClass = "RzlXbot\KategoriProduk\Models\KategoriModel"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "nama_kategori"
+notFoundMessage = "Record not found"
+
+==
+<?
+use RzlXbot\KategoriProduk\Models\KategoriModel;
+use RzlXbot\Produk\Models\ProdukModel;
+
+function onStart()
+{
+    $category = KategoriModel::all();
+    $products = ProdukModel::BySlug($this->param('slug'))->paginate(9);
+    $this['products'] = $products; 
+    $this['recordKategori'] = $category;  
+}
+?>
+==
+{% set record = kategoriDetails.record %}
+{% set displayColumn = kategoriDetails.displayColumn %}
+{% set notFoundMessage = kategoriDetails.notFoundMessage %}
+
+<div class="ui breadcrumb">
+        <a href="{{ 'home' |page }}" class="section">Home</a>
+        <i class="right angle icon divider"></i>
+        <a href="{{ 'category' |page }}" class="section">Category</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">{{ attribute(record, displayColumn) }}</div>
+      </div>
+
+<h2 class="ui center aligned header">{{ attribute(record, displayColumn) }}</h2>
+<div class="ui four column grid">
+    <div class="large screen only four wide column">
+        <div class="ui vertical menu">
+            <div class="item">
+                <div class="header">Products Category</div>
+                <div class="menu">
+                    {% for data in recordKategori%}
+                    <a class="item" href="{{ 'category'|page({ ('slug'): attribute(data, 'slug') }) }}">{{
+                        data.nama_kategori }}</a>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eleven wide computer only column">
+        <div class="ui three column doubling grid">
+            {% for data in products %}
+            <div class="column">
+                <div class="ui fluid card">
+                    <div class="image">
+                        <img src="{{ data.img_cover.thumb(300, 300, 'crop') }}">
+                    </div>
+                    <div class="content">
+                        <a class="custom-link" href="{{ 'product_detail'|page({ ('slug'): attribute(data, 'slug') }) }}">{{
+                            data.nama_produk}}</a>
+                        <div class="meta">
+                            <span class="date">RP.{{ data.harga_produk }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <h3>No Record</h3>
+            {% endfor %}
+        </div>
+    </div>
+</div>

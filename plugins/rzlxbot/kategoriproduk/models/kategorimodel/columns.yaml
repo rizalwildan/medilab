@@ -1,0 +1,13 @@
+columns:
+    nama_kategori:
+        label: 'Nama Kategori'
+        type: text
+        searchable: true
+    slug:
+        label: 'Slug Kategori'
+        type: text
+    created_at:
+        label: 'Created At'
+        type: datetime
+        searchable: true
+        sortable: true

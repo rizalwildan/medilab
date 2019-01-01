@@ -1,0 +1,5 @@
+title: DataKategori
+modelClass: RzlXbot\KategoriProduk\Models\KategoriModel
+nameFrom: nama_kategori
+toolbar:
+    buttons: reorder_toolbar

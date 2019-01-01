@@ -1,0 +1,35 @@
+[viewBag]
+==
+<div class="large screen only four wide column">
+    <div class="ui vertical menu">
+        <div class="item">
+            <div class="header">Products Category</div>
+            <div class="menu">
+                {% for data in recordKategori%}
+                <a class="item" href="{{ detailsKategori|page({ (kategoriUrlParameter): attribute(data, kategoriKeyColumn) }) }}">{{ data.nama_kategori }}</a>
+                {% endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="large screen only eleven wide column">
+        <div class="ui three column doubling grid">
+                {% for record in records %}
+                <div class="column">
+                    <div class="ui fluid card">
+                    <div class="image">
+                        <img src="{{ record.img_cover.thumb(300, 300, 'crop') }}">
+                    </div>
+                    <div class="content">
+                        <a class="custom-link" href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">{{ record.nama_produk}}</a>
+                        <div class="meta">
+                            <span class="date">RP.{{ record.harga_produk }}</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                {% else %}
+                <h3>{{ noRecordsMessage }}</h3>
+                {% endfor %}
+        </div>
+</div>

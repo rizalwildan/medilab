@@ -1,0 +1,56 @@
+[viewBag]
+==
+
+<!-- Following Menu -->
+<div class="ui borderless large fixed hidden main menu">
+        <div class="ui container">
+            <div class="header item">
+                <img class="logo" src="assets/images/logo.png">
+                Project Name
+              </div>
+              <a href="{{ 'home'|page }}" class="{% if this.page.id == 'home' %}active{% endif %} item">Home</a>
+              <a href="{{ 'product-list'|page }}" class="{% if this.page.id == 'product-list' %}active{% endif %} item">Product List</a>
+              <a href="{{ 'company'|page }}" class="{% if this.page.id == 'company' %}active{% endif %} item">Company</a>
+              <a href="{{ 'careers'|page }}" class="{% if this.page.id == 'careers' %}active{% endif %} item">Careers</a>
+        </div>
+      </div>
+      
+      <!-- Sidebar Menu -->
+      <div class="ui vertical inverted sidebar menu">
+          <a href="{{ 'home'|page }}" class="{% if this.page.id == 'home' %}active{% endif %} item">Home</a>
+          <a href="{{ 'product-list'|page }}" class="{% if this.page.id == 'product-list' %}active{% endif %} item">Product List</a>
+          <a href="{{ 'company'|page }}" class="{% if this.page.id == 'company' %}active{% endif %} item">Company</a>
+          <a href="{{ 'careers'|page }}" class="{% if this.page.id == 'careers' %}active{% endif %} item">Careers</a>
+      </div>
+      
+      
+      <!-- Static Menu -->
+      <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+      
+          <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+              <a class="toc item">
+                <i class="sidebar icon"></i>
+              </a>
+              <div class="header item">
+                  <img class="logo" src="assets/images/logo.png">
+                  Project Name
+                </div>
+              <a href="{{ 'home'|page }}" class="{% if this.page.id == 'home' %}active{% endif %} item">Home</a>
+              <a href="{{ 'product-list'|page }}" class="{% if this.page.id == 'product-list' %}active{% endif %} item">Product List</a>
+              <a href="{{ 'company'|page }}" class="{% if this.page.id == 'company' %}active{% endif %} item">Company</a>
+              <a href="{{ 'careers'|page }}" class="{% if this.page.id == 'careers' %}active{% endif %} item">Careers</a>
+            </div>
+          </div>
+      
+          <div class="ui text container">
+            <h1 class="ui inverted header">
+              Your Company Name
+            </h1>
+            <h2>Profesional and guaranted medical supply</h2>
+            <a href="{{ 'product-list'|page }}" class="ui huge primary button">Our Products <i class="right arrow icon"></i></a>
+          </div>
+      
+        </div>
+        

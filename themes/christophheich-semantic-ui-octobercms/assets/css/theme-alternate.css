@@ -1,0 +1,28 @@
+body {
+    background-color: #FFFFFF;
+  }
+.main.container {
+    margin-top: 5em;
+    padding-bottom: 50%;
+}
+.ui.footer.segment {
+    height: 100%;
+    width: 100%;
+    padding: 5em 0em;
+}
+
+.custom-link {
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+#content {
+    flex: 1;
+  }
+
+@media screen and (max-width: 320px) {
+    .main.container {
+        margin-top: 5em;
+    }
+}

@@ -1,0 +1,28 @@
+==
+<?
+function onSubmit()
+    {
+        $slug = Input::get('slug');
+        $id = KategoriModel::where('slug', $slug)->first();
+        $query = ProdukModel::where('kategori_id', $id->id)->get();
+        $this['products'] = $query
+    }
+?>
+==
+{% set category = __SELF__.category %}
+
+<div class="large screen only four wide column">
+    <div class="ui vertical menu">
+        <div class="item">
+            <div class="header">Products Category</div>
+            <div class="menu">
+                {% for data in category%}
+                <a class="item"
+                data-request="onSubmit"
+                data-request-update="'produk-filter': '#partialProduk'"
+                data-request-data="slug: '{{ data.slug }}'">{{ data.nama_kategori }}</a>
+                {% endfor%}
+            </div>
+        </div>
+    </div>
+</div>

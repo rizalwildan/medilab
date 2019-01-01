@@ -1,0 +1,16 @@
+name: 'Form Data Produk'
+modelClass: RzlXbot\Produk\Models\ProdukModel
+form: $/rzlxbot/produk/models/produkmodel/fields.yaml
+defaultRedirect: rzlxbot/produk/dataproduk
+create:
+    title: 'Tambah Data Produk'
+    redirect: 'rzlxbot/produk/dataproduk/update/:id'
+    redirectClose: rzlxbot/produk/dataproduk
+    flashSave: 'Create produk success'
+update:
+    title: 'Edit Data Produk'
+    redirect: rzlxbot/produk/dataproduk
+    redirectClose: rzlxbot/produk/dataproduk
+    flashSave: 'Update produk success'
+    flashDelete: 'Delete produk success'
+preview: {  }

@@ -1,0 +1,61 @@
+fields:
+    nama_produk:
+        label: 'Nama Produk'
+        span: auto
+        required: 1
+        type: text
+    slug:
+        label: Slug
+        span: auto
+        preset:
+            field: nama_produk
+            type: slug
+        type: text
+    deskripsi_produk:
+        label: 'Deskripsi Produk'
+        size: large
+        span: full
+        required: 1
+        type: richeditor
+    harga_produk:
+        label: 'Harga Produk'
+        span: auto
+        required: 1
+        type: number
+        comment: 'Misal: 1500000'
+    kategori_id:
+        label: 'Kategori Produk'
+        span: auto
+        placeholder: 'Pilih kategori'
+        required: 1
+        type: dropdown
+    img_cover:
+        label: 'Poster Produk'
+        mode: image
+        imageWidth: '300'
+        imageHeight: '400'
+        fileTypes: 'png,jpg'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        required: 1
+        type: fileupload
+        commentAbove: 'Tipe Gambar: PNG,JPG'
+    produk_galeri:
+        label: 'Produk Galeri'
+        prompt: 'Add new item'
+        maxItems: '5'
+        span: auto
+        type: repeater
+        commentAbove: 'Max 5 Gambar'
+        form:
+            fields:
+                produk_galeri:
+                    label: Image
+                    mode: image
+                    imageWidth: '300'
+                    imageHeight: '300'
+                    span: auto
+                    type: mediafinder
